@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSentry | Terminal Defense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="game-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <div id="ui-layer">
+                <div class="top-bar">
+                    <div class="stats-group">
+                        <div class="stat-item">
+                            <span class="stat-label">System Credit</span>
+                            <span id="gold-value" class="stat-value stat-gold">300</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Integrity</span>
+                            <span id="lives-value" class="stat-value stat-lives">20</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Threat Level</span>
+                            <span id="wave-value" class="stat-value stat-wave">Sector 1 | Wave 1/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wave-action">
+                        <button id="next-wave-btn" class="btn btn-small">Initialize Wave</button>
+                    </div>
+                </div>
+
+                <div id="start-screen" class="screen">
+                    <h1 class="game-title">CYBER<span>SENTRY</span></h1>
+                    <p class="game-subtitle">TERMINAL DEFENSE INITIALIZED</p>
+                    <button id="start-btn" class="btn">Access Mainframe</button>
+                </div>
+
+                <div id="victory-screen" class="screen hidden">
+                    <h2 class="victory-title">THREAT NEUTRALIZED</h2>
+                    <p id="victory-msg">Sector Secured</p>
+                    <button id="next-level-btn" class="btn">Next Sector</button>
+                </div>
+
+                <div id="gameover-screen" class="screen hidden">
+                    <h2 class="gameover-title">SYSTEM COMPROMISED</h2>
+                    <p>Integrity Failure</p>
+                    <button id="restart-btn" class="btn">Reboot System</button>
+                </div>
+            </div>
+        </div>
+
+        <aside id="sidebar">
+            <h2 class="sidebar-header">Arsenal</h2>
+            <div id="tower-shop" class="tower-grid"></div>
+            
+            <div id="tower-details" class="tower-info-panel hidden">
+                <div class="sidebar-header pt-15">Sentry Specs</div>
+                <div id="detail-content" class="mt-0"></div>
+            </div>
+        </aside>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
