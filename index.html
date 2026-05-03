@@ -1,71 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSentry | Terminal Defense</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberSentry | Tower Defense</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div id="app">
         <div id="game-container">
             <canvas id="gameCanvas"></canvas>
-            
+
             <div id="ui-layer">
                 <div class="top-bar">
                     <div class="stats-group">
                         <div class="stat-item">
-                            <span class="stat-label">System Credit</span>
-                            <span id="gold-value" class="stat-value stat-gold">300</span>
+                            <span class="stat-label">Gold</span>
+                            <span id="gold-value" class="stat-value stat-gold">1000</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Integrity</span>
+                            <span class="stat-label">Core Integrity</span>
                             <span id="lives-value" class="stat-value stat-lives">20</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">Threat Level</span>
-                            <span id="wave-value" class="stat-value stat-wave">Sector 1 | Wave 1/5</span>
+                            <span class="stat-label">Wave</span>
+                            <span id="wave-value" class="stat-value stat-wave">1/6</span>
                         </div>
                     </div>
-                    
                     <div class="wave-action">
-                        <button id="next-wave-btn" class="btn btn-small">Initialize Wave</button>
+                        <button id="next-wave-btn" class="btn mt-0"
+                            style="padding: 10px 25px; font-size: 14px; min-width: 150px;">Initialize Wave</button>
                     </div>
-                </div>
-
-                <div id="start-screen" class="screen">
-                    <h1 class="game-title">CYBER<span>SENTRY</span></h1>
-                    <p class="game-subtitle">TERMINAL DEFENSE INITIALIZED</p>
-                    <button id="start-btn" class="btn">Access Mainframe</button>
-                </div>
-
-                <div id="victory-screen" class="screen hidden">
-                    <h2 class="victory-title">THREAT NEUTRALIZED</h2>
-                    <p id="victory-msg">Sector Secured</p>
-                    <button id="next-level-btn" class="btn">Next Sector</button>
-                </div>
-
-                <div id="gameover-screen" class="screen hidden">
-                    <h2 class="gameover-title">SYSTEM COMPROMISED</h2>
-                    <p>Integrity Failure</p>
-                    <button id="restart-btn" class="btn">Reboot System</button>
                 </div>
             </div>
         </div>
 
         <aside id="sidebar">
             <h2 class="sidebar-header">Arsenal</h2>
-            <div id="tower-shop" class="tower-grid"></div>
-            
-            <div id="tower-details" class="tower-info-panel hidden">
-                <div class="sidebar-header pt-15">Sentry Specs</div>
-                <div id="detail-content" class="mt-0"></div>
+            <div class="tower-grid" id="tower-shop">
+                <!-- Tower cards will be injected here -->
+            </div>
+
+            <div id="tower-details" class="hidden">
+                <h3 class="sidebar-header">System Intel</h3>
+                <div id="detail-content" class="pt-15">
+                    <!-- Upgrade/Sell options will appear here -->
+                </div>
             </div>
         </aside>
+
+        <!-- Screens -->
+        <div id="start-screen" class="screen">
+            <h1 class="game-title">CYBERSENTRY</h1>
+            <p class="game-subtitle">SECURE THE GRID</p>
+            <button id="start-btn" class="btn">Initialize Level 1</button>
+        </div>
+
+        <div id="victory-screen" class="screen hidden">
+            <h1 class="victory-title">THREAT NEUTRALIZED</h1>
+            <p id="victory-msg">Level 1 Secured</p>
+            <button id="next-level-btn" class="btn">Next Sector</button>
+        </div>
+
+        <div id="gameover-screen" class="screen hidden">
+            <h1 class="gameover-title">CORE COMPROMISED</h1>
+            <p>System Failure. Defense Offline.</p>
+            <button id="restart-btn" class="btn">Retry Sequence</button>
+        </div>
     </div>
     <script type="module" src="/main.js"></script>
 </body>
+
 </html>
